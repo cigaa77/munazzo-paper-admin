@@ -1,25 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, CommonModule, HashLocationStrategy } from '@angular/common';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';  
-import {      
-  MatButtonModule,      
-  MatMenuModule,      
-  MatToolbarModule,      
-  MatIconModule,      
-  MatCardModule,      
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
   MatSidenavModule,
   MatListModule,
   MatCheckboxModule,
-  MatFormFieldModule,      
-  MatInputModule,      
-  MatDatepickerModule,         
-  MatNativeDateModule,      
-  MatRadioModule,      
-  MatSelectModule,      
-  MatOptionModule,      
-  MatSlideToggleModule   
-} from '@angular/material'; 
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatSlideToggleModule
+} from '@angular/material';
 import { AppComponent } from './app.component';
 
 // Routing Module
@@ -44,15 +44,16 @@ import { LightspeedComponent } from './legacywidgets/lightspeed/lightspeed.compo
 import { MarketplaceComponent } from './legacywidgets/marketplace/marketplace.component';
 import { GenerallComponent } from './legacywidgets/munazzo-com/generall-conditions/generall.component';
 import { ConditionsComponent } from './legacywidgets/munazzo-com/dropshipping-conditions/conditions.component';
+import { WidgetGuardService } from './widgets/widgets.guard.service';
 
 
 @NgModule({
   imports: [
-    BrowserModule,AppRoutingModule,CommonModule,Ng2AutoBreadCrumb,BootstrapModalModule,BrowserAnimationsModule,
-    BrowserModule,FormsModule,ReactiveFormsModule,MatButtonModule,MatMenuModule,MatToolbarModule,MatIconModule,
-    MatCardModule,BrowserAnimationsModule, MatFormFieldModule,MatInputModule, MatDatepickerModule, MatNativeDateModule,      
-    MatRadioModule, MatSelectModule, MatOptionModule, MatSlideToggleModule,MatButtonModule,MatSidenavModule,
-    MatIconModule,MatListModule,MatCardModule,MatCheckboxModule
+    BrowserModule, AppRoutingModule, CommonModule, Ng2AutoBreadCrumb, BootstrapModalModule, BrowserAnimationsModule,
+    BrowserModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule,
+    MatCardModule, BrowserAnimationsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
+    MatRadioModule, MatSelectModule, MatOptionModule, MatSlideToggleModule, MatButtonModule, MatSidenavModule,
+    MatIconModule, MatListModule, MatCardModule, MatCheckboxModule
   ],
   declarations: [
     FullLayoutComponent,
@@ -74,21 +75,21 @@ import { ConditionsComponent } from './legacywidgets/munazzo-com/dropshipping-co
     LightspeedComponent,
     MarketplaceComponent,
   ],
-  exports: [      
-    MatButtonModule,      
-    MatMenuModule,      
-    MatToolbarModule,      
-    MatIconModule,      
-    MatCardModule,      
-    BrowserAnimationsModule,      
-    MatFormFieldModule,      
-    MatInputModule,      
-    MatDatepickerModule,      
-    MatNativeDateModule,      
-    MatRadioModule,      
-    MatSelectModule,      
-    MatOptionModule,      
-    MatSlideToggleModule      
+  exports: [
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule
   ],
   providers: [{
     provide: "baseUrl", useValue: "http://api.munazzo.com/"
@@ -96,8 +97,9 @@ import { ConditionsComponent } from './legacywidgets/munazzo-com/dropshipping-co
   {
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
-  }
-],
+  },
+    WidgetGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

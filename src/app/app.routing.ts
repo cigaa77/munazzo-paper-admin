@@ -16,6 +16,7 @@ import { AppsComponent } from './legacywidgets/assortiment/apps/apps.component';
 import { CategorienComponent } from './legacywidgets/assortiment/categorien/categorien.component';
 import { PakettenComponent } from './legacywidgets/assortiment/paketten/paketten.component';
 import { SearchComponent } from './legacywidgets/assortiment/search/search.component';
+import { WidgetGuardService } from './widgets/widgets.guard.service';
 
 // Layouts
 export const routes: Routes = [
@@ -25,46 +26,46 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'apps',component: AppsComponent
+    path: 'apps', component: AppsComponent
   },
   {
-    path:'categorien', component:CategorienComponent
+    path: 'categorien', component: CategorienComponent
   },
-  {path:'paketten',component:PakettenComponent},
-  {path:'search',component:SearchComponent},
+  { path: 'paketten', component: PakettenComponent },
+  { path: 'search', component: SearchComponent },
   {
     path: 'legacydashboard',
     component: LegacydashboardComponent
   },
   {
-    path: 'marketplace',component: MarketplaceComponent
+    path: 'marketplace', component: MarketplaceComponent
   },
   {
-    path: 'lightspeed',component: LightspeedComponent
+    path: 'lightspeed', component: LightspeedComponent
   },
   {
-    path: 'contact',component: ContactComponent
-  },
-  {
-    path: 'ccv',component: CcvComponent
-  },
-  {
-    path: 'mywebstore',component: MywebstoreComponent
-  },
-  {
-    path: 'over-ons',component: OverOnsComponent
+    path: 'contact', component: ContactComponent
   },
   {
     path: 'ccv', component: CcvComponent
   },
   {
-    path: 'dropshipping-conditions',component: ConditionsComponent
+    path: 'mywebstore', component: MywebstoreComponent
   },
   {
-    path: 'generall-conditions',component: GenerallComponent
+    path: 'over-ons', component: OverOnsComponent
   },
   {
-    path: 'policy',component: PolicyComponent
+    path: 'ccv', component: CcvComponent
+  },
+  {
+    path: 'dropshipping-conditions', component: ConditionsComponent
+  },
+  {
+    path: 'generall-conditions', component: GenerallComponent
+  },
+  {
+    path: 'policy', component: PolicyComponent
   },
   {
     path: 'login',
@@ -114,6 +115,7 @@ export const routes: Routes = [
           },
           {
             path: 'accountplatform',
+            canActivate: [WidgetGuardService],
             loadChildren: './widgets/modules/accountplatform.module#AccountPlatformWidgetModule'
           },
           {

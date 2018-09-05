@@ -17,8 +17,9 @@
             <div class="form-group">
               <input name="password" ngModel class="form-control" placeholder="password" type="password">
             </div>
-            <div class="form-group" *ngIf="IsNull" col-sm-8>
-                <alert [color]="warningCOlor" [text]="warningText"></alert>
+            <div class="form-group" *ngIf="isPassCorrect" col-sm-8>
+              {{isPassErrorMes}}
+                <!-- <alert [color]="warningCOlor" [text]="warningText"></alert> -->
               </div>
             <div class="form-control col-sm-8">
               <button type="submit" class="btn btn-primary pull-right">

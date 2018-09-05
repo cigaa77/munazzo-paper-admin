@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   message: string;
   loading = false;
   IsNull:boolean;
+  isPassCorrect:boolean=false;
+  isPassErrorMes:string;
 
   //
   public successText="Successful";
@@ -62,6 +64,11 @@ export class LoginComponent implements OnInit {
       this.accounts = c;
     });
   }
+  isError(error:string){
+    this.isPassCorrect=true;
+    this.isPassErrorMes=error;
+  }
+
 
   public onSubmit(form: NgForm): void {
     this.account.Username = form.value.username;
@@ -80,13 +87,15 @@ export class LoginComponent implements OnInit {
         else {
           this.message = "Username or password is incorrect!";
         }
+      },error=>{
+        this.isError(error._body);
       })
       this.submitted = true;
     }
     else{
-      this.IsNull=true;
-      this.warningText="Username or password is incorrect!";
-      alert("Username or password is incorrect!");
+      // this.IsNull=true;
+      // this.warningText="Username or password is incorrect!";
+      // alert("Username or password is incorrect!");
     }
   }
 
